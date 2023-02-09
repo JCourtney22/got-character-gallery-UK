@@ -1,43 +1,14 @@
-import './App.css';
-import React, { useState } from 'react';
+import React from 'react'
+import CharacterGallery from './components/CharacterGallery'
+import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-  const [errMessage, setErrMessage] = useState('')
-
-  const incrementCount = () => {
-    if (count >= 0) {
-      setCount(count + 1)
-      setErrMessage(' ')
-    }
-  }
-  const decrementCount = () => count <= 0 ? setErrMessage('The counter can not go below zero') : setCount(count - 1)
-
+const App = () => {
   return (
-    <div className="app-container" data-test="component-app">
-      <div>
-
-        <h1 data-test="counter-display">
-          The counter is currently &nbsp;
-      <span data-test='count'>{count}</span>
-        </h1>
-        <button
-          data-test='increment-button'
-          onClick={incrementCount}
-        >
-          Increment counter
-    </button>
-        <button
-          data-test='decrement-button'
-          onClick={decrementCount}
-        >
-          decrement counter
-    </button>
-
-        <h2 data-test='error-message'>{errMessage}</h2>
-      </div>
+    <div data-test='app-container'>
+      <h1 className="site-title" data-test='site-title'>A Song of Fire and Ice</h1>
+      <CharacterGallery />
     </div>
   );
-}
+};
 
 export default App;
